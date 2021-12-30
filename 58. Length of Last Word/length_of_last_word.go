@@ -1,6 +1,6 @@
 package main
 
-// https://leetcode.com/problems/length-of-last-word/
+/// https://leetcode.com/problems/length-of-last-word/
 
 func lengthOfLastWord(s string) int {
 	end := len(s) - 1
