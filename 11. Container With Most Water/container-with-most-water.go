@@ -11,27 +11,23 @@ func Min(x int, y int) int {
 }
 
 func maxArea(height []int) int {
-	var area, maximumArea int
+	var res, area int
 
-	x, y := 0, len(height)-1
-	maximumArea = Min(height[x], height[y]) * (y - x)
+	low, high := 0, len(height)-1
 
-	for _ = range height {
-		if x == y {
-			break
+	for low < high {
+
+		area = Min(height[low], height[high]) * (high - low)
+		if area > res {
+			res = area
 		}
 
-		if height[x] < height[y] {
-			x += 1
+		if height[low] > height[high] {
+			high--
 		} else {
-			y -= 1
-		}
-
-		area = Min(height[x], height[y]) * (y - x)
-		if area > maximumArea {
-			maximumArea = area
+			low++
 		}
 
 	}
-	return maximumArea
+	return res
 }
