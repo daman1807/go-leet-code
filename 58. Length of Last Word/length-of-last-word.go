@@ -3,23 +3,24 @@ package main
 /// https://leetcode.com/problems/length-of-last-word/
 
 func lengthOfLastWord(s string) int {
-	end := len(s) - 1
+	high := len(s) - 1
 	res := 0
-	for end >= 0 {
-		if string(s[end]) == " " {
 
+	for high >= 0 {
+		if s[high] == ' ' {
+			high--
 		} else {
-			for end >= 0 {
-				if string(s[end]) == " " {
-					return res
-				} else {
-					res += 1
-				}
-				end -= 1
-			}
+			break
 		}
-		end -= 1
+	}
+
+	for high >= 0 {
+		if s[high] == ' ' {
+			break
+		} else {
+			res++
+		}
+		high--
 	}
 	return res
-
 }
