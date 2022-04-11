@@ -1,12 +1,12 @@
 package main
 
-//https://leetcode.com/problems/container-with-most-water/
+//https://leetcode.com/problems/container-with-most-water
 
 func Min(a, b int) int {
-	if a > b {
-		return b
+	if b > a {
+		return a
 	}
-	return a
+	return b
 }
 
 func maxArea(height []int) int {
