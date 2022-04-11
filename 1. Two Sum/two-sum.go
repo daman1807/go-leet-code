@@ -4,16 +4,16 @@ package main
 
 func twoSum(nums []int, target int) []int {
 	m := make(map[int]int)
-	result := make([]int, 2)
+	res := make([]int, 2)
 
-	for idx, num := range nums {
-		if val, ok := m[target-num]; ok {
-			result[0] = idx
-			result[1] = val
+	for i := 0; i < len(nums); i++ {
+		if val, ok := m[nums[i]]; ok {
+			res[0] = val
+			res[1] = i
+			break
 		} else {
-			m[num] = idx
+			m[target-nums[i]] = i
 		}
 	}
-
-	return result
+	return res
 }
