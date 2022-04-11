@@ -2,24 +2,22 @@ package main
 
 //https://leetcode.com/problems/container-with-most-water/
 
-func Min(x int, y int) int {
-	if x >= y {
-		return y
+func Min(a, b int) int {
+	if a > b {
+		return b
 	}
-	return x
-
+	return a
 }
 
 func maxArea(height []int) int {
-	var res, area int
-
 	low, high := 0, len(height)-1
+	area := 0
+	max := 0
 
 	for low < high {
-
 		area = Min(height[low], height[high]) * (high - low)
-		if area > res {
-			res = area
+		if area > max {
+			max = area
 		}
 
 		if height[low] > height[high] {
@@ -29,5 +27,5 @@ func maxArea(height []int) int {
 		}
 
 	}
-	return res
+	return max
 }
