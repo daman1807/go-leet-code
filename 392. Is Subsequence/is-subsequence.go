@@ -11,9 +11,9 @@ func isSubsequence(s string, t string) bool {
 	i, j := 0, 0
 	for i < ls && j < lt {
 		if s[i] == t[j] {
-			i += 1
+			i++
 		}
-		j += 1
+		j++
 	}
 	return i == ls
 }
