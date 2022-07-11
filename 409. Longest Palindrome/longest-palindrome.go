@@ -3,18 +3,27 @@ package main
 // https://leetcode.com/problems/longest-palindrome/
 
 func longestPalindrome(s string) int {
+
+	var pickedOdd bool
+	var ans int
+
 	counter := make(map[rune]int)
 
 	for _, r := range s {
 		counter[r]++
 	}
 
-	answer := 0
-	for _, v := range counter {
-		answer += v / 2 * 2
-		if answer%2 == 0 && v%2 == 1 {
-			answer++
+	for _, c := range counter {
+		if c%2 == 0 {
+			ans += c
+		} else {
+			ans += c - 1
+			if !pickedOdd {
+				ans += 1
+				pickedOdd = true
+			}
 		}
 	}
-	return answer
+
+	return ans
 }
